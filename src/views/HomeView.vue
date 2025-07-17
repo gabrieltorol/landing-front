@@ -759,10 +759,11 @@ section {
 /* Nueva sección de capacitación */
 .capacitacion-section {
   max-width: 1200px;
-  margin: 56px auto 0 auto;
+  margin: 56px auto;
   padding: 48px 24px;
   background: #1a1027;
   border-radius: 18px;
+  
   box-shadow: 0 4px 32px rgba(0,0,0,0.07);
   border: 2px solid #7c3aed;
   display: flex;
