@@ -44,14 +44,14 @@
           <img src="/src/assets/profesor1.png" alt="Danilo Toro" class="profesor-img" />
           <div class="profesor-info">
             <div class="profesor-nombre">Danilo Toro</div>
-            <div class="profesor-cargo">Especialista en RPA</div>
+            <div class="profesor-cargo">Especialista en RPA / IA</div>
             <div class="profesor-curso"><span class="profesor-icon">🤖</span> Automatización Robótica</div>
           </div>
         </div>
         <div class="profesor-card">
-          <img src="/src/assets/profesor2.png" alt="Ivan Lazo" class="profesor-img" />
+          <img src="/src/assets/profesor2.png" alt="Ivan Cabrera" class="profesor-img" />
           <div class="profesor-info">
-            <div class="profesor-nombre">Ivan Lazo</div>
+            <div class="profesor-nombre">Ivan Cabrera</div>
             <div class="profesor-cargo">Consultor de Procesos</div>
             <div class="profesor-curso"><span class="profesor-icon">📊</span> Optimización de Procesos</div>
           </div>
@@ -86,7 +86,7 @@
   <section class="capacitacion-section">
     <div class="capacitacion-content">
       <div class="capacitacion-left">
-        <h2 class="capacitacion-title">Capacitación empresarial que <br />Sí acelera equipos</h2>
+        <h2 class="capacitacion-title">Capacitación empresarial que Sí acelera equipos</h2>
         <p class="capacitacion-subtitle">Rabbit2 Business no es solo para perfiles técnicos. Capacita líderes, administradores, talento operativo y más.</p>
         <button class="capacitacion-btn">Conocer planes</button>
       </div>
@@ -270,9 +270,9 @@ export default {
   }
 }
 .capacitacion-section {
-  margin: 64px auto 0 auto;
-  padding: 56px 36px 56px 36px;
-  max-width: 900px;
+  margin: 64px auto;
+  padding: 56px 36px;
+  max-width: 1200px;
   background: rgba(255,255,255,0.10);
   border-radius: 24px;
   border: 1.5px solid rgba(255,255,255,0.25);
@@ -284,12 +284,13 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 2.5rem;
+  gap: 1.5rem;
   flex-wrap: wrap;
 }
 .capacitacion-left {
   flex: 1 1 320px;
   min-width: 280px;
+  padding: 0 36px;
 }
 .capacitacion-title {
   font-size: 2.3rem;
@@ -432,7 +433,7 @@ export default {
 }
 .profesores-cards {
   display: flex;
-  gap: 2rem;
+  gap: 1rem;
   flex-wrap: wrap;
   justify-content: center;
 }
@@ -441,7 +442,7 @@ export default {
   border-radius: 20px;
   box-shadow: 0 4px 24px 0 rgba(124,58,237,0.10);
   padding: 0 0 1.5rem 0;
-  width: 260px;
+  width: 22rem;
   display: flex;
   flex-direction: column;
   align-items: center;
