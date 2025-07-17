@@ -119,7 +119,7 @@ export default {
 }
 .contact-section {
   width: 100%;
-  max-width: 600px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 4rem 2rem 3rem 2rem;
   text-align: center;
@@ -144,7 +144,7 @@ export default {
   box-shadow: 0 2px 16px 0 rgba(60,29,95,0.10);
   font-size: 1.08rem;
   margin: 0 auto;
-  max-width: 500px;
+  max-width: 40rem;
 }
 .contact-form {
   display: flex;

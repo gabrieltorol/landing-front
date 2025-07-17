@@ -6,6 +6,7 @@ const industrias = [
     nombre: 'Salud',
     titulo: 'Concéntrese en la atención al paciente, no en el papeleo.',
     subtitulo: 'Reimaginar las experiencias de proveedores y pacientes.',
+    imagen: '/src/assets/servicios/Salud.jpeg',
     beneficios: [
       {
         titulo: 'Impulse mejores resultados para los pacientes',
@@ -25,6 +26,7 @@ const industrias = [
     nombre: 'Seguros',
     titulo: 'Optimice la gestión de pólizas y siniestros.',
     subtitulo: 'Transforme la experiencia de clientes y agentes.',
+    imagen: '/src/assets/servicios/Seguros.jpeg',
     beneficios: [
       {
         titulo: 'Procesos más ágiles',
@@ -44,6 +46,7 @@ const industrias = [
     nombre: 'Banca',
     titulo: 'Automatización segura y eficiente en banca.',
     subtitulo: 'Modernice la operación y mejore la experiencia del usuario.',
+    imagen: '/src/assets/servicios/Banca.jpeg',
     beneficios: [
       {
         titulo: 'Onboarding digital',
@@ -63,6 +66,7 @@ const industrias = [
     nombre: 'Servicios Públicos',
     titulo: 'Eficiencia y transparencia en servicios públicos.',
     subtitulo: 'Mejore la atención ciudadana y la gestión interna.',
+    imagen: '/src/assets/servicios/ServiciosPublicos.jpeg',
     beneficios: [
       {
         titulo: 'Atención 24/7',
@@ -79,9 +83,10 @@ const industrias = [
     ]
   },
   {
-    nombre: 'Telco',
+    nombre: 'Telecomunicaciones',
     titulo: 'Agilice la gestión de clientes y servicios.',
     subtitulo: 'Reduzca tiempos de respuesta y mejore la retención.',
+    imagen: '/src/assets/servicios/Telecomunicaciones.jpeg',
     beneficios: [
       {
         titulo: 'Soporte automatizado',
@@ -101,6 +106,7 @@ const industrias = [
     nombre: 'Manufactura',
     titulo: 'Optimice la producción y la cadena de suministro.',
     subtitulo: 'Automatización para mayor calidad y eficiencia.',
+    imagen: '/src/assets/servicios/Manufactura.jpeg',
     beneficios: [
       {
         titulo: 'Control de inventarios',
@@ -119,28 +125,67 @@ const industrias = [
 ]
 
 const industriaSeleccionada = ref(0)
+const dropdownAbierto = ref(true)
 </script>
 
 <template>
   <div class="soluciones-bg">
     <h1 class="soluciones-title">¿Cómo usar RPA + IA en tu industria?</h1>
-    <div class="soluciones-tabs">
-      <div
-        v-for="(industria, idx) in industrias"
-        :key="industria.nombre"
-        :class="['tab-item', { active: industriaSeleccionada === idx }]"
-        @click="industriaSeleccionada = idx"
-      >
-        {{ industria.nombre }}
+    
+    <div class="soluciones-container">     <!-- Dropdown lateral -->
+      <div class="soluciones-sidebar">
+        <div class="dropdown-container">
+          <button 
+            class="dropdown-button"
+            @click="dropdownAbierto = !dropdownAbierto"
+          >
+            <span>{{ industrias[industriaSeleccionada].nombre }}</span>
+            <svg class="dropdown-icon" :class="{ 'rotated': dropdownAbierto }" fill="none" stroke="currentColor" viewBox="0 0 24 24">             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+          
+          <div class="dropdown-menu" :class="{ open: dropdownAbierto }">
+            <div
+              v-for="(industria, idx) in industrias"
+              :key="industria.nombre"
+              :class="['dropdown-item', { active: industriaSeleccionada === idx }]"
+              @click="() => { industriaSeleccionada = idx;}"
+            >
+              {{ industria.nombre }}
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="soluciones-content">
-      <h2 class="soluciones-content-title">{{ industrias[industriaSeleccionada].titulo }}</h2>
-      <p class="soluciones-content-subtitle">{{ industrias[industriaSeleccionada].subtitulo }}</p>
-      <div class="soluciones-beneficios">
-        <div v-for="(beneficio, i) in industrias[industriaSeleccionada].beneficios" :key="i" class="beneficio-col">
-          <h3 class="beneficio-title">{{ beneficio.titulo }}</h3>
-          <p class="beneficio-text">{{ beneficio.texto }}</p>
+      
+      <!-- Contenido principal -->
+      <div class="soluciones-content">       <!-- Imagen al inicio -->
+        <div class="soluciones-header-image">
+          <img 
+            :src="industrias[industriaSeleccionada].imagen" 
+            :alt="industrias[industriaSeleccionada].nombre"
+            class="industria-imagen"
+          />
+        </div>
+        
+        <div class="soluciones-header">
+          <div class="soluciones-header-text">         <h2 class="soluciones-content-title">{{ industrias[industriaSeleccionada].titulo }}</h2>
+            <p class="soluciones-content-subtitle">{{ industrias[industriaSeleccionada].subtitulo }}</p>
+          </div>
+        </div>
+        
+        <div class="soluciones-beneficios">
+          <ul class="beneficios-lista">
+            <li v-for="(beneficio, i) in industrias[industriaSeleccionada].beneficios" :key="i" class="beneficio-item">              <div class="beneficio-check">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+              </div>
+              <div class="beneficio-content">
+                <h4 class="beneficio-title">{{ beneficio.titulo }}</h4>
+                <p class="beneficio-text">{{ beneficio.texto }}</p>
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
@@ -163,126 +208,349 @@ const industriaSeleccionada = ref(0)
   color: #fff;
   padding-top: 2.5rem;
 }
-.soluciones-tabs {
+
+.soluciones-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 2.5rem;
-  background: linear-gradient(90deg, #7c3aed 0%, #a21caf 100%);
-  padding: 1.2rem 0 0.7rem 0;
-  margin-bottom: 2.5rem;
-  flex-wrap: wrap;
-  border-radius: 0 0 18px 18px;
-}
-.tab-item {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: #fff;
-  cursor: pointer;
-  padding: 0.3rem 1.2rem 0.3rem 1.2rem;
-  border: none;
-  background: transparent;
-  border-bottom: 3px solid transparent;
-  transition: color 0.2s, border-bottom 0.2s, background 0.2s;
-  letter-spacing: 0.5px;
-  border-radius: 8px 8px 0 0;
-}
-.tab-item.active {
-  color: #7c3aed;
-  border-bottom: 3px solid #fff;
-  background: #fff;
-}
-.soluciones-content {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 3rem 2rem 2rem 2rem;
-  text-align: center;
+  gap: 3rem;
+  padding: 0 2rem;
 }
+
+/* Sidebar con dropdown */
+.soluciones-sidebar {
+  flex: 0 0 300px;
+  position: sticky;
+  top: 2rem;
+  height: fit-content;
+}
+
+.dropdown-container {
+  position: relative;
+  width: 100%;
+}
+
+.dropdown-button {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  background: linear-gradient(90deg, #7c3aed 0%, #a21caf 100%);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
+}
+
+.dropdown-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(124, 58, 237, 0.4);
+}
+
+.dropdown-icon {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s ease;
+}
+
+.dropdown-icon.rotated {
+  transform: rotate(180deg);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #231130;
+  border: 1px solid #7c3aed;
+  border-radius: 12px;
+  margin-top: 0.5rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  max-height: 0;
+  overflow: hidden;
+}
+
+.dropdown-menu.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  max-height: 400px; /* Adjust as needed */
+}
+
+.dropdown-item {
+  padding: 1rem 1.5rem;
+  color: #e0cfff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-bottom: 1px solid rgba(124, 58, 237, 0.2);
+}
+
+.dropdown-item:last-child {
+  border-bottom: none;
+}
+
+.dropdown-item:hover {
+  background: rgba(124, 58, 237, 0.2);
+  color: #fff;
+}
+
+.dropdown-item.active {
+  background: rgba(124, 58, 237, 0.3);
+  color: #fff;
+  font-weight: 600;
+}
+
+/* Contenido principal */
+.soluciones-content {
+  flex: 1;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.soluciones-header {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.soluciones-header-text {
+  flex: 1;
+}
+
+.soluciones-header-image {
+  width: 100%;
+  height: 320px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  margin: 0 auto 2rem auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.industria-imagen {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.industria-imagen:hover {
+  transform: scale(1.05);
+}
+
 .soluciones-content-title {
-  font-size: 1.5rem;
+  font-size: 2.2rem;
   font-weight: 700;
   color: #fff;
-  margin-bottom: 0.7rem;
+  margin-bottom: 1rem;
+  line-height: 1.2;
 }
 .soluciones-content-subtitle {
-  color: #e0e0e0;
-  font-size: 1.1rem;
-  margin-bottom: 2.2rem;
+  font-size: 1.2rem;
+  color: #e0cfff;
+  margin-bottom: 2.5rem;
+  line-height: 1.4;
 }
+
 .soluciones-beneficios {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.beneficio-card {
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.1) 0%, rgba(162, 28, 175, 1) 100%);
+  border: 1px solid rgba(124, 58, 237, 0.3);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.beneficio-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #7c3aed 0%, #a21caf 100%);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.beneficio-card:hover::before {
+  transform: scaleX(1);
+}
+
+.beneficio-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(124, 58, 237, 0.3);
+  border-color: rgba(124, 58, 237, 0.5);
+}
+
+.beneficio-icon {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #7c3aed 0%, #a21caf 100%);
+  border-radius: 12px;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 2.5rem;
-}
-.beneficio-col {
-  flex: 1 1 300px;
-  max-width: 420px;
-  min-width: 260px;
-  background: rgba(124, 58, 237, 0.13);
-  border-radius: 14px;
-  padding: 1.2rem 1rem;
+  justify-content: center;
   margin-bottom: 1.5rem;
-  box-shadow: 0 2px 8px 0 rgba(124,58,237,0.10);
-  border: 1.5px solid rgba(124, 58, 237, 0.18);
-  text-align: center;
-}
-.beneficio-title {
   color: #fff;
+}
+
+.beneficio-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.beneficio-content {
+  position: relative;
+  z-index: 1;
+}
+
+.beneficio-title {
   font-size: 1.1rem;
-  font-weight: 700;
-  margin-bottom: 0.7rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 0.3rem;
+  line-height: 1.3;
 }
 .beneficio-text {
   color: #e0cfff;
-  font-size: 1rem;
+  line-height: 1.5;
+  font-size: 0.98rem;
 }
-@media (max-width: 900px) {
-  .soluciones-beneficios {
-    flex-direction: column;
-    align-items: center;
-    gap: 1.2rem;
-  }
-  .beneficio-col {
-    max-width: 100%;
-    min-width: 0;
-  }
-}
-.soluciones-cta {
-  margin: 4rem auto 0 auto;
-  padding: 3rem 2rem 3.5rem 2rem;
-  background: linear-gradient(90deg, #7c3aed 0%, #a21caf 100%);
-  border-radius: 22px;
-  text-align: center;
-  max-width: 700px;
-  box-shadow: 0 4px 24px 0 rgba(124,58,237,0.10);
-}
-.cta-title {
+
+/* NUEVOS ESTILOS PARA BULLETPOINTS Y AJUSTE DE IMAGEN */
+.beneficios-titulo {
   color: #fff;
-  font-size: 2rem;
-  font-weight: 800;
-  margin-bottom: 1rem;
-}
-.cta-subtitle {
-  color: #e0cfff;
-  font-size: 1.15rem;
-  margin-bottom: 2.2rem;
-}
-.cta-btn-soluciones {
-  display: inline-block;
-  background: #fff;
-  color: #7c3aed;
+  font-size: 1.3rem;
   font-weight: 700;
-  font-size: 1.15rem;
-  padding: 1rem 2.5rem;
-  border-radius: 10px;
-  text-decoration: none;
-  box-shadow: 0 2px 8px 0 rgba(124,58,237,0.10);
-  transition: background 0.2s, color 0.2s;
-  border: none;
+  margin-bottom: 1.2rem;
 }
-.cta-btn-soluciones:hover {
-  background: #e0cfff;
-  color: #a21caf;
+.beneficios-lista {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.beneficio-item {
+  display: flex;
+  align-items: flex-start;
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.08) 0%, rgba(162, 28, 175, 0.18) 100%);
+  border-radius: 14px;
+  padding: 1.2rem 1.5rem;
+  box-shadow: 0 2px 10px rgba(124, 58, 237, 0.08);
+  border: 1px solid rgba(124, 58, 237, 0.18);
+}
+.beneficio-check {
+  min-width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, #7c3aed 0%, #a21caf 100%);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1.2rem;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(124, 58, 237, 0.15);
+}
+.beneficio-check svg {
+  width: 20px;
+  height: 20px;
+}
+.beneficio-content {
+  flex: 1;
+}
+.beneficio-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 0.3rem;
+  line-height: 1.3;
+}
+.beneficio-text {
+  color: #e0cfff;
+  line-height: 1.5;
+  font-size: 0.98rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .soluciones-container {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .soluciones-sidebar {
+    flex: none;
+    position: static;
+  }
+  
+  .soluciones-content {
+    padding: 1.5rem;
+  }
+  
+  .soluciones-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+  }
+  
+  .soluciones-header-image {
+    flex: 0 0 150px;
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .soluciones-content-title {
+    font-size: 1.8rem;
+  }
+  
+  .soluciones-beneficios {
+    grid-template-columns: 1fr;
+  }
+  
+  .beneficio-card {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .soluciones-title {
+    font-size: 2rem;
+    padding: 1.5rem 1em 0rem;
+  }
+  
+  .soluciones-container {
+    padding: 0 1rem;
+  }
+  
+  .beneficio-title {
+    font-size: 1.2rem;
+  }
 }
 </style> 

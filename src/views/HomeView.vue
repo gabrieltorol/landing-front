@@ -72,7 +72,7 @@ const logos = [
         Optimiza tus procesos con nuestras soluciones de <b>RPA, inteligencia artificial y desarrollo de software</b>.
       </p>
       <div class="hero-actions">
-        <router-link to="/capacitacion" class="hero-btn">Agenda una llamada</router-link>
+        <router-link to="/contacto" class="hero-btn">Agenda una llamada</router-link>
       </div>
     </section>
 
@@ -253,7 +253,7 @@ section {
   border-radius: 8px;
   font-size: 1.1rem;
   text-decoration: none;
-  border: 2px solid #3c1d5f;
+  /* border: 2px solid #3c1d5f; */
   transition: background 0.2s, color 0.2s;
 }
 
@@ -278,7 +278,7 @@ section {
 .confian-carousel {
   overflow: hidden;
   width: 100%;
-  max-width: 900px;
+  max-width: 1200px;
   margin: 32px auto 48px auto;
   position: relative;
   background: transparent;

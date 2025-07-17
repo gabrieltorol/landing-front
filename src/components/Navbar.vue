@@ -53,7 +53,7 @@ export default {
 }
 
 .logo-img {
-  height: 38px;
+  height: 60px;
   vertical-align: middle;
 }
 
