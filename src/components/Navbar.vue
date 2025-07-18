@@ -5,19 +5,50 @@
         <router-link to="/" class="nav-logo">
           <img src="@/assets/logo-rabbit2.png" alt="Rabbit2 logo" class="logo-img" />
         </router-link>
-        <router-link to="/" class="nav-link">Inicio</router-link>
-        <router-link to="/soluciones" class="nav-link">Soluciones</router-link>
-        <router-link to="/capacitacion" class="nav-link">Capacitación</router-link>
-        <router-link to="/recursos" class="nav-link">Recursos</router-link>
+        
+        <!-- Menú de hamburguesa para móviles -->
+        <button class="hamburger-btn" @click="toggleMenu" :class="{ 'active': isMenuOpen }">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        
+        <!-- Enlaces de navegación -->
+        <div class="nav-links" :class="{ 'open': isMenuOpen }">
+          <router-link to="/" class="nav-link" @click="closeMenu">Inicio</router-link>
+          <router-link to="/soluciones" class="nav-link" @click="closeMenu">Soluciones</router-link>
+          <router-link to="/capacitacion" class="nav-link" @click="closeMenu">Capacitación</router-link>
+          <router-link to="/recursos" class="nav-link" @click="closeMenu">Recursos</router-link>
+        </div>
       </div>
-      <router-link to="/contacto" class="contact-btn">Contacto</router-link>
+      
+      <router-link to="/contacto" class="contact-btn" @click="closeMenu">Contacto</router-link>
     </div>
   </nav>
 </template>
 
 <script>
+import { ref } from 'vue'
+
 export default {
-  name: 'Navbar'
+  name: 'Navbar',
+  setup() {
+    const isMenuOpen = ref(false)
+    
+    const toggleMenu = () => {
+      isMenuOpen.value = !isMenuOpen.value
+    }
+    
+    const closeMenu = () => {
+      isMenuOpen.value = false
+    }
+    
+    return {
+      isMenuOpen,
+      toggleMenu,
+      closeMenu
+    }
+  }
 }
 </script>
 
@@ -97,16 +128,104 @@ export default {
   border: 1px solid #fff;
 }
 
+.hamburger-btn {
+  display: none; /* Hidden by default */
+  flex-direction: column;
+  justify-content: space-around;
+  width: 24px;
+  height: 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.hamburger-btn span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+  transition: all 0.3s ease-in-out;
+}
+
+.hamburger-btn.active span:nth-child(1) {
+  transform: translateY(11px) rotate(45deg);
+}
+
+.hamburger-btn.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-btn.active span:nth-child(3) {
+  transform: translateY(-11px) rotate(-45deg);
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  transition: transform 0.3s ease-in-out;
+}
+
+.nav-links.open {
+  transform: translateY(0);
+}
+
+.nav-links.closed {
+  transform: translateY(-100%);
+}
+
 @media (max-width: 900px) {
   .nav-container {
-    flex-direction: column;
-    gap: 0.7rem;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     padding: 0 1rem;
+    position: relative;
   }
+  
   .nav-left {
-    flex-direction: column;
+    display: flex;
+    align-items: center;
     gap: 1rem;
   }
+  
+  .hamburger-btn {
+    display: flex;
+  }
+  
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: linear-gradient(90deg, #591d5f 0%, #3c1d5f 100%);
+    padding: 1rem 0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 99;
+  }
+  
+  .nav-links.open {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .nav-link {
+    padding: 0.8rem 1rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  
+  .nav-link:last-child {
+    border-bottom: none;
+  }
+  
   .contact-btn {
     margin-left: 0;
   }
