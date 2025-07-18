@@ -6,7 +6,7 @@ const industrias = [
     nombre: 'Salud',
     titulo: 'Concéntrese en la atención al paciente, no en el papeleo.',
     subtitulo: 'Reimaginar las experiencias de proveedores y pacientes.',
-    imagen: '/src/assets/servicios/Salud.jpeg',
+    imagen: '/servicios/Salud.jpeg',
     beneficios: [
       {
         titulo: 'Impulse mejores resultados para los pacientes',
@@ -26,7 +26,7 @@ const industrias = [
     nombre: 'Seguros',
     titulo: 'Optimice la gestión de pólizas y siniestros.',
     subtitulo: 'Transforme la experiencia de clientes y agentes.',
-    imagen: '/src/assets/servicios/Seguros.jpeg',
+    imagen: '/servicios/Seguros.jpeg',
     beneficios: [
       {
         titulo: 'Procesos más ágiles',
@@ -46,7 +46,7 @@ const industrias = [
     nombre: 'Banca',
     titulo: 'Automatización segura y eficiente en banca.',
     subtitulo: 'Modernice la operación y mejore la experiencia del usuario.',
-    imagen: '/src/assets/servicios/Banca.jpeg',
+    imagen: '/servicios/Banca.jpeg',
     beneficios: [
       {
         titulo: 'Onboarding digital',
@@ -66,7 +66,7 @@ const industrias = [
     nombre: 'Servicios Públicos',
     titulo: 'Eficiencia y transparencia en servicios públicos.',
     subtitulo: 'Mejore la atención ciudadana y la gestión interna.',
-    imagen: '/src/assets/servicios/ServiciosPublicos.jpeg',
+    imagen: '/servicios/ServiciosPublicos.jpeg',
     beneficios: [
       {
         titulo: 'Atención 24/7',
@@ -86,7 +86,7 @@ const industrias = [
     nombre: 'Telecomunicaciones',
     titulo: 'Agilice la gestión de clientes y servicios.',
     subtitulo: 'Reduzca tiempos de respuesta y mejore la retención.',
-    imagen: '/src/assets/servicios/Telecomunicaciones.jpeg',
+    imagen: '/servicios/Telecomunicaciones.jpeg',
     beneficios: [
       {
         titulo: 'Soporte automatizado',
@@ -106,7 +106,7 @@ const industrias = [
     nombre: 'Manufactura',
     titulo: 'Optimice la producción y la cadena de suministro.',
     subtitulo: 'Automatización para mayor calidad y eficiencia.',
-    imagen: '/src/assets/servicios/Manufactura.jpeg',
+    imagen: '/servicios/Manufactura.jpeg',
     beneficios: [
       {
         titulo: 'Control de inventarios',
