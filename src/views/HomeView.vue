@@ -53,11 +53,11 @@ const enviarFormulario = async () => {
 
 // Carrusel de logos (sin require)
 const logos = [
-  { src: '/src/assets/ls-logo.png', alt: 'Logo LS' },
-  { src: '/src/assets/robotipy-logo.png', alt: 'Logo Robotipy' },
-  { src: '/src/assets/rocketbot-logo.png', alt: 'Logo Rocketbot' },
-  { src: '/src/assets/rizobacter-logo.png', alt: 'Logo Rizobacter' },
-  { src: '/src/assets/opendevpro-logo.png', alt: 'Logo OpenDev Pro' }
+  { src: '/logos/ls-logo.png', alt: 'Logo LS' },
+  { src: '/logos/robotipy-logo.png', alt: 'Logo Robotipy' },
+  { src: '/logos/rocketbot-logo.png', alt: 'Logo Rocketbot' },
+  { src: '/logos/rizobacter-logo.png', alt: 'Logo Rizobacter' },
+  { src: '/logos/opendevpro-logo.png', alt: 'Logo OpenDev Pro' }
 ]
 </script>
 
@@ -763,7 +763,7 @@ section {
   padding: 48px 24px;
   background: #1a1027;
   border-radius: 18px;
-  
+
   box-shadow: 0 4px 32px rgba(0,0,0,0.07);
   border: 2px solid #7c3aed;
   display: flex;
