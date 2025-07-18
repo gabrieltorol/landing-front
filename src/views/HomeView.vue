@@ -924,15 +924,91 @@ section {
   justify-content: center;
 }
 @media (max-width: 900px) {
+  .capacitacion-content {
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  .capacitacion-left {
+    text-align: center;
+  }
+  
+  .capacitacion-title {
+    font-size: 2rem;
+  }
+  
+  .capacitacion-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .capacitacion-form {
+    padding: 24px 20px;
+    max-width: 100%;
+  }
+  
+  .form-title {
+    font-size: 1.5rem;
+  }
+  
+  .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+  
   .capacitacion-beneficios {
     flex-direction: column;
     align-items: center;
     gap: 18px;
   }
+  
   .beneficio-item {
     min-width: 220px;
     width: 100%;
     justify-content: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .capacitacion-section {
+    padding: 32px 16px;
+    margin: 40px 16px;
+  }
+  
+  .capacitacion-title {
+    font-size: 1.8rem;
+    line-height: 1.3;
+  }
+  
+  .capacitacion-subtitle {
+    font-size: 1rem;
+  }
+  
+  .capacitacion-form {
+    padding: 20px 16px;
+  }
+  
+  .form-title {
+    font-size: 1.3rem;
+  }
+  
+  .form-input {
+    font-size: 0.95rem;
+    padding: 8px 10px;
+  }
+  
+  .form-submit {
+    font-size: 1.1rem;
+    padding: 10px 0;
+  }
+  
+  .beneficio-item {
+    min-width: auto;
+    padding: 16px 20px;
+    font-size: 0.95rem;
+  }
+  
+  .beneficio-icon {
+    font-size: 1.4rem;
   }
 }
 </style>
