@@ -87,7 +87,7 @@
     <div class="capacitacion-content">
       <div class="capacitacion-left">
         <h2 class="capacitacion-title">Capacitación empresarial que Sí acelera equipos</h2>
-        <p class="capacitacion-subtitle">Rabbit2 Business no es solo para perfiles técnicos. Capacita líderes, administradores, talento operativo y más.</p>
+                  <p class="capacitacion-subtitle">RAbbit² Business no es solo para perfiles técnicos. Capacita líderes, administradores, talento operativo y más.</p>
         <button class="capacitacion-btn">Conocer planes</button>
       </div>
       <div class="capacitacion-right">
@@ -107,7 +107,7 @@
             <input type="text" placeholder="Nro. de teléfono" class="form-input" />
           </div>
           <button type="submit" class="form-submit">Enviar</button>
-          <p class="form-legal">Al enviar el formulario, aceptas los <a href="#">Términos de servicio</a> y <a href="#">Políticas de privacidad</a> de Rabbit2.</p>
+                      <p class="form-legal">Al enviar el formulario, aceptas los <a href="#">Términos de servicio</a> y <a href="#">Políticas de privacidad</a> de RAbbit².</p>
         </form>
       </div>
     </div>

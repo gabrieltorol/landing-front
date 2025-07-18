@@ -111,7 +111,7 @@ const logos = [
 
     <!-- Segunda sección: Automatiza tu empresa con RPA factory! -->
     <section class="rpa-factory-section glass-effect">
-      <h2 class="section-title">Automatiza tu empresa con <span class="highlight">Rabbit2!</span></h2>
+              <h2 class="section-title">Automatiza tu empresa con <span class="highlight">RAbbit²!</span></h2>
       <p class="section-desc">
         Contamos con diferentes soluciones para tu empresa, mediante software de RPA (Robotic process automation), el cual permite la automatización de tareas y procesos.
       </p>
@@ -156,7 +156,7 @@ const logos = [
       <div class="capacitacion-content">
         <div class="capacitacion-left">
           <h2 class="capacitacion-title">Capacitación empresarial que <br />Sí acelera equipos</h2>
-          <p class="capacitacion-subtitle">Rabbit2 Business no es solo para perfiles técnicos. Capacita líderes, administradores, talento operativo y más.</p>
+          <p class="capacitacion-subtitle">RAbbit² Business no es solo para perfiles técnicos. Capacita líderes, administradores, talento operativo y más.</p>
           <button class="capacitacion-btn">Conocer planes</button>
         </div>
         <div class="capacitacion-right">
@@ -177,7 +177,7 @@ const logos = [
               <input type="text" placeholder="Nro. de teléfono" class="form-input" />
             </div>
             <button type="submit" class="form-submit">Enviar</button>
-            <p class="form-legal">Al enviar el formulario, aceptas los <a href="#">Términos de servicio</a> y <a href="#">Políticas de privacidad</a> de Rabbit2.</p>
+            <p class="form-legal">Al enviar el formulario, aceptas los <a href="#">Términos de servicio</a> y <a href="#">Políticas de privacidad</a> de RAbbit².</p>
           </form>
         </div>
       </div>

@@ -3,7 +3,7 @@
     <div class="nav-container">
       <div class="nav-left">
         <router-link to="/" class="nav-logo">
-          <img src="@/assets/logo-rabbit2.png" alt="Rabbit2 logo" class="logo-img" />
+          <img src="@/assets/logo-rabbit2.png" alt="RAbbit² logo" class="logo-img" />
         </router-link>
         
         <!-- Menú de hamburguesa para móviles -->
