@@ -36,36 +36,6 @@
         </div>
       </div>
     </section>
-    <!-- Sección de profesores expertos -->
-    <section class="profesores-section">
-      <h2 class="profesores-title">Nuestros profesores son expertos de la industria</h2>
-      <div class="profesores-cards">
-        <div class="profesor-card">
-          <img src="/src/assets/profesor1.png" alt="Danilo Toro" class="profesor-img" />
-          <div class="profesor-info">
-            <div class="profesor-nombre">Danilo Toro</div>
-            <div class="profesor-cargo">Especialista en RPA / IA</div>
-            <div class="profesor-curso"><span class="profesor-icon">🤖</span> Automatización Robótica</div>
-          </div>
-        </div>
-        <div class="profesor-card">
-          <img src="/src/assets/profesor2.png" alt="Ivan Cabrera" class="profesor-img" />
-          <div class="profesor-info">
-            <div class="profesor-nombre">Ivan Cabrera</div>
-            <div class="profesor-cargo">Consultor de Procesos</div>
-            <div class="profesor-curso"><span class="profesor-icon">📊</span> Optimización de Procesos</div>
-          </div>
-        </div>
-        <div class="profesor-card">
-          <img src="/src/assets/profesor3.png" alt="Andres Gomez" class="profesor-img" />
-          <div class="profesor-info">
-            <div class="profesor-nombre">Andres Gomez</div>
-            <div class="profesor-cargo">Instructor Senior</div>
-            <div class="profesor-curso"><span class="profesor-icon">💡</span> Innovación en RPA</div>
-          </div>
-        </div>
-      </div>
-    </section>
     <!-- Sección de beneficios -->
     <section class="beneficios-section">
       <h2 class="beneficios-title">¿Por qué capacitar a tu equipo en RPA?</h2>
