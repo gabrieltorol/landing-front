@@ -18,7 +18,7 @@
           <router-link to="/" class="nav-link" @click="closeMenu">Inicio</router-link>
           <router-link to="/soluciones" class="nav-link" @click="closeMenu">Soluciones</router-link>
           <router-link to="/capacitacion" class="nav-link" @click="closeMenu">Capacitación</router-link>
-          <router-link to="/recursos" class="nav-link" @click="closeMenu">Recursos</router-link>
+          <router-link to="/recursos" class="nav-link" @click="closeMenu">Quiénes Somos</router-link>
         </div>
       </div>
       
